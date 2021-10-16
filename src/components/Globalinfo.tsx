@@ -12,7 +12,7 @@ const Globalinfo: React.FunctionComponent<Props> = ({
 }) => {
     return (
         <Wrapper>
-            <h1>Global Covid-19 data</h1>
+            <h1>Global Covid-19  Statistics</h1>
             <h3>
                 New Confirmed: {new Intl.NumberFormat().format(newConfirmed)}
             </h3>
