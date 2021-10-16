@@ -7,7 +7,7 @@ export type Country = {
     NewDeaths: number;
     NewRecovered: number;
     Premium: unknown;
-    slug: string;
+    Slug: string;
     TotalConfirmed: number;
     ToTalDeaths: number;
     TotalRecovered: number;
@@ -23,6 +23,7 @@ export type GlobalData = {
     TotalRecovered: number;
 };
 
+//What we get back from the api in a whole
 export type ResponseData = {
     Countries: Country[];
     Date: string;

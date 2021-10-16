@@ -1,26 +1,28 @@
 import { useState, useEffect } from 'react'
-
+import { ResponseData } from './types/types';
 
 
 const App: React.FunctionComponent = () => {
-  const [data, setData] = useState(undefined)
-  
-  const fetchData = async () => {
-    const result  = await fetch('https://api.covid19api.com/');
-    const data = await result.json;
+    // eslint-disable-next-line
+    const [data, setData] = useState<ResponseData | undefined>(undefined);
 
-    setData(data);
-  };
+    const fetchData = async () => {
+        const result = await fetch("https://api.covid19api.com/summary");
+        const data: ResponseData = await result.json();
 
-  useEffect(() => {
-    console.log(data)
-  })
+        setData(data);
+        console.log(data);
+    };
 
-    return(
-      <div className="app">
-        <h1>hello</h1>
-      </div>
-    )
+    useEffect(() => {
+        fetchData();
+    },[]);
+
+    return (
+        <div className="app">
+            <h1>hello</h1>
+        </div>
+    );
 }
 
 export default App
