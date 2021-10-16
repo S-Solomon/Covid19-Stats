@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 interface Props {
     newConfirmed: number;
     newDeaths: number;
@@ -10,7 +11,7 @@ const Globalinfo: React.FunctionComponent<Props> = ({
     newRecovered,
 }) => {
     return (
-        <div>
+        <Wrapper>
             <h1>Global Covid-19 data</h1>
             <h3>
                 New Confirmed: {new Intl.NumberFormat().format(newConfirmed)}
@@ -19,8 +20,13 @@ const Globalinfo: React.FunctionComponent<Props> = ({
             <h3>
                 New Recovered: {new Intl.NumberFormat().format(newRecovered)}
             </h3>
-        </div>
+        </Wrapper>
     );
 };
 
 export default Globalinfo;
+
+
+const Wrapper = styled.div`
+    text-align: center;
+`
