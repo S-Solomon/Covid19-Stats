@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import CountryList from "./components/CountryList";
 import Globalinfo from "./components/Globalinfo";
-import { ResponseData } from "./types/types";
+import type { ResponseData } from "./types/types";
 
 const App: React.FunctionComponent = () => {
     // eslint-disable-next-line
@@ -21,11 +22,14 @@ const App: React.FunctionComponent = () => {
     return (
         <div className="app">
             {data ? (
+                <>
                 <Globalinfo
                     newConfirmed={data?.Global.NewConfirmed}
                     newDeaths={data?.Global.NewDeaths}
                     newRecovered={data?.Global.NewRecovered}
                 />
+                <CountryList countries={data.Countries}/>
+                </>
             ) : (
                 "Loading ..."
             )}
