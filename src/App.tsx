@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { ResponseData } from './types/types';
-
+import { useState, useEffect } from "react";
+import Globalinfo from "./components/Globalinfo";
+import { ResponseData } from "./types/types";
 
 const App: React.FunctionComponent = () => {
     // eslint-disable-next-line
@@ -16,13 +16,21 @@ const App: React.FunctionComponent = () => {
 
     useEffect(() => {
         fetchData();
-    },[]);
+    }, []);
 
     return (
         <div className="app">
-            <h1>hello</h1>
+            {data ? (
+                <Globalinfo
+                    newConfirmed={data?.Global.NewConfirmed}
+                    newDeaths={data?.Global.NewDeaths}
+                    newRecovered={data?.Global.NewRecovered}
+                />
+            ) : (
+                "Loading ..."
+            )}
         </div>
     );
-}
+};
 
-export default App
+export default App;
