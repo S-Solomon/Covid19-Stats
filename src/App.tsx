@@ -15,7 +15,6 @@ const App: React.FunctionComponent = () => {
         const data: ResponseData = await result.json();
 
         setData(data);
-        // console.log(data);
     };
 
     useEffect(() => {
